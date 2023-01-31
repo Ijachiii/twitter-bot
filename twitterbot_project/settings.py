@@ -31,16 +31,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "twitterbot.apps.TwitterbotConfig",
+    "accounts.apps.AccountsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "crispy_forms",
+    "crispy_bootstrap5",
     "allauth",
     "allauth.account",
-    "twitterbot.apps.TwitterbotConfig",
-    "accounts.apps.AccountsConfig"
 ]
 
 MIDDLEWARE = [
@@ -127,6 +129,11 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "account_login"

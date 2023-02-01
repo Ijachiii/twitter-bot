@@ -25,4 +25,4 @@ class HomePageView(LoginRequiredMixin, FormView):
 
 class ResultView(LoginRequiredMixin, TemplateView):
     template_name = "result.html"
-    
+    login_url = 'account_login'

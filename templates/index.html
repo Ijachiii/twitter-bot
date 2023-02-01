@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "_base.html" %}
+{% load crispy_forms_tags%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
+{% block title %}Twitter Bot{% endblock title %}
 
-<body>
-    <h1>Twitter bot</h1>
-</body>
+{% block content %}
+<h1>Twitter Bot</h1>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis inventore voluptate quo odio aspernatur
+    dignissimos repellendus veritatis ut, natus maxime impedit, fugiat aperiam consequuntur rem consectetur vel facilis
+    sit quos.
+</p>
 
-</html>
+<form action="" method="post">
+    {% csrf_token %}
+    {{form}}
+    <button class="btn btn-primary" type="submit">Check</button>
+</form>
+{% endblock content %}

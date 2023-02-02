@@ -3,7 +3,7 @@ from django.views.generic import FormView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import AccountForm
 from django.contrib.auth import get_user_model
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 
 # Create your views here.
 # def home(request):
@@ -22,6 +22,11 @@ class HomePageView(LoginRequiredMixin, FormView):
     template_name = "index.html"
     login_url = "account_login"
     success_url = "/result/"
+
+    def form_valid(self, form: AccountForm) -> HttpResponse:
+        username = form.cleaned_data["username"]
+        print(username)
+        return super().form_valid(form)
 
 class ResultView(LoginRequiredMixin, TemplateView):
     template_name = "result.html"

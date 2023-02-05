@@ -147,7 +147,7 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend"
 )
 
-# Email handling
+# sending mails
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 DEFAULT_FROM_EMAIL = "davidaudu10@outlook.com"
 EMAIL_HOST = "smtp.sendgrid.net"
@@ -157,6 +157,7 @@ EMAIL_HOST_PASSWORD ="SG.LsGj8omRTG-Y14w7A63qHw.aQkDowPvKI3glKiSJzTv_ofmY3vtsMgq
 EMAIL_USE_TLS = True
 
 
+# allauth authentication
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
 ACCOUNT_USERNAME_REQUIRED = False

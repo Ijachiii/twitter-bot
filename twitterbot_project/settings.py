@@ -147,6 +147,7 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend"
 )
 
+# Email handling
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 DEFAULT_FROM_EMAIL = "davidaudu10@outlook.com"
 EMAIL_HOST = "smtp.sendgrid.net"

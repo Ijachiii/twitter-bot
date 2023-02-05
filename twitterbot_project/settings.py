@@ -148,11 +148,11 @@ AUTHENTICATION_BACKENDS = (
 )
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-DEFAULT_FROM_EMAIL = "jasonfeddd@gmail.com"
+DEFAULT_FROM_EMAIL = "davidaudu10@outlook.com"
 EMAIL_HOST = "smtp.sendgrid.net"
 EMAIL_PORT = 587
 EMAIL_HOST_USER = "apikey"
-EMAIL_HOST_PASSWORD ="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"
+EMAIL_HOST_PASSWORD ="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"
 EMAIL_USE_TLS = True
 
 

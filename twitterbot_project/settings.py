@@ -148,7 +148,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # sending mails
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 DEFAULT_FROM_EMAIL = "davidaudu10@outlook.com"
 EMAIL_HOST = "smtp.sendgrid.net"
 EMAIL_PORT = 587

@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
+
+env = environ.Env()
+env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -149,12 +153,12 @@ AUTHENTICATION_BACKENDS = (
 
 # sending mails
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-DEFAULT_FROM_EMAIL = "davidaudu10@outlook.com"
-EMAIL_HOST = "smtp.sendgrid.net"
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "apikey"
-EMAIL_HOST_PASSWORD ="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"
-EMAIL_USE_TLS = True
+EMAIL_HOST = env("EMAIL_HOST")
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
+EMAIL_PORT = env.int("EMAIL_PORT")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS")
 
 
 # allauth authentication

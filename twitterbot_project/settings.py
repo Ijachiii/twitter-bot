@@ -149,12 +149,12 @@ AUTHENTICATION_BACKENDS = (
 
 # sending mails
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-# DEFAULT_FROM_EMAIL = "davidaudu10@outlook.com"
-# EMAIL_HOST = "smtp.sendgrid.net"
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = "apikey"
-# EMAIL_HOST_PASSWORD ="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"
-# EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = "davidaudu10@outlook.com"
+EMAIL_HOST = "smtp.sendgrid.net"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "apikey"
+EMAIL_HOST_PASSWORD ="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"
+EMAIL_USE_TLS = True
 
 
 # allauth authentication

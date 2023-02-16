@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
+    "allauth.socialaccount.providers.twitter",
 ]
 
 MIDDLEWARE = [
@@ -182,5 +183,11 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'online',
         },
         'OAUTH_PKCE_ENABLED': True,
-    }
+    },
+
+    "trello": {
+        "AUTH_PARAMS": {
+            "scope": "read,write",
+        }
+    },
 }

@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
     "allauth.socialaccount.providers.twitter",
-    "djangorestframework",
+    "rest_framework",
+    "dj_rest_auth",
 ]
 
 MIDDLEWARE = [

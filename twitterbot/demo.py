@@ -73,7 +73,7 @@ def prediction(username):
     # Reads in saved classification model
     load_clf = pickle.load(
         open(
-            r"Final Project\twitter_clf.pkl",
+            r"twitterbot\twitter_clf.pkl",
             "rb",
         )
     )
@@ -88,4 +88,4 @@ def prediction(username):
     print(account_type[prediction])
 
 
-prediction("_stevo_lee")
+prediction("David_Audu_")

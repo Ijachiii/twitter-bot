@@ -4,19 +4,16 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import AccountForm
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse
-import pickle
-import pandas as pd
-import numpy as np
-import tweepy
-import json
-import datetime
+from .demo import prediction
 
 # Create your views here.
 def home(request):
     if request.method == "POST":
         form = AccountForm(request.POST)
         if form.is_valid():
-            return render(request, "result.html")
+            screen_name = form.cleaned_data["screen_name"]
+            pred = prediction(screen_name)
+            return render(request, "result.html", {"screen_name": screen_name, "pred": pred})
     else:
         form = AccountForm()
     return render(request, "index.html", {"form": form})

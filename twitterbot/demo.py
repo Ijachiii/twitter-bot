@@ -85,7 +85,7 @@ def prediction(username):
     # prediction_proba = load_clf.predict_proba(df)
 
     account_type = np.array(["Bot", "Human"])
-    print(account_type[prediction])
+    return account_type[prediction][0]
 
 
-prediction("David_Audu_")
+# prediction("David_Audu_")

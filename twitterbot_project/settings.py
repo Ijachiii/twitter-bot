@@ -185,10 +185,4 @@ SOCIALACCOUNT_PROVIDERS = {
         },
         'OAUTH_PKCE_ENABLED': True,
     },
-
-    "trello": {
-        "AUTH_PARAMS": {
-            "scope": "read,write",
-        }
-    },
 }

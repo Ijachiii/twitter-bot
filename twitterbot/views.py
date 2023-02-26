@@ -1,21 +1,24 @@
 from django.shortcuts import render
 from django.views.generic import FormView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import AccountForm
+from .forms import TwitterAccountCheckedForm
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 from .demo import prediction
+from .models import TwitterAccountChecked
 
 # Create your views here.
 def home(request):
     if request.method == "POST":
-        form = AccountForm(request.POST)
+        form = TwitterAccountCheckedForm(request.POST)
         if form.is_valid():
-            screen_name = form.cleaned_data["screen_name"]
-            pred = prediction(screen_name)
-            return render(request, "result.html", {"screen_name": screen_name, "pred": pred})
+            screen_name_ = form.cleaned_data["screen_name"]
+            pred = prediction(screen_name_)
+            data = TwitterAccountChecked(screen_name=screen_name_, prediction=pred)
+            data.save()
+            return render(request, "result.html", {"screen_name": screen_name_, "pred": pred})
     else:
-        form = AccountForm()
+        form = TwitterAccountCheckedForm()
     return render(request, "index.html", {"form": form})
 
 # class HomePageView(LoginRequiredMixin, FormView):

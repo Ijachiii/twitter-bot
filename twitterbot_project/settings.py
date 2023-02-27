@@ -37,7 +37,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     "twitterbot.apps.TwitterbotConfig",
     "accounts.apps.AccountsConfig",
-    "twitter_api.apps.TwitterApiConfig",
+    "api.apps.ApiConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

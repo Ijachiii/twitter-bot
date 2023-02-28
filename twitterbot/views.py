@@ -6,8 +6,10 @@ from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 from .demo import prediction
 from .models import TwitterAccountChecked
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def home(request):
     if request.method == "POST":
         form = TwitterAccountCheckedForm(request.POST)

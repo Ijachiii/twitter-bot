@@ -12,7 +12,9 @@ from .serializers import AccountCheckedSerializer
 def checkAccount(request):
     serializer = AccountCheckedSerializer(data=request.data)
     if serializer.is_valid():
-        print(serializer["screen_name"])
+        print(serializer.data["screen_name"])
+    else:
+        print("Not valid bruh")
 
     return Response(serializer.data)
 

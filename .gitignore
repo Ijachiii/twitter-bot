@@ -3,3 +3,4 @@
 db.sqlite3
 __pycache__/
 twitterbot/twitter_clf.pkl
+api/twitter_clf.pkl

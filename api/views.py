@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from rest_framework import generics, status
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from rest_framework.response import Response 
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 from .serializers import AccountCheckedSerializer, UserSerializer
@@ -17,8 +17,6 @@ class UserRegistrationView(generics.CreateAPIView):
 
 
 @api_view(["POST"])
-@authentication_classes([SessionAuthentication, BasicAuthentication])
-@permission_classes([IsAuthenticated])
 def checkAccount(request):
     serializer = AccountCheckedSerializer(data=request.data)
     if serializer.is_valid():
@@ -33,3 +31,7 @@ def checkAccount(request):
 
     return Response(serializer.data)
 
+
+
+# @permission_classes([IsAuthenticated])
+# @authentication_classes([SessionAuthentication, BasicAuthentication])

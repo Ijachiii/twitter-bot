@@ -1,9 +1,9 @@
 from django import forms
-from .models import TwitterAccountChecked
+from .models import TwitterAccountsCheck
 
 class TwitterAccountCheckedForm(forms.ModelForm):
     class Meta:
-        model = TwitterAccountChecked
+        model = TwitterAccountsCheck
         fields = ["screen_name"]
         widgets = {"screen_name": forms.TextInput(attrs={"placeholder": "@username"})} 
 

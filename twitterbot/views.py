@@ -5,7 +5,7 @@ from .forms import TwitterAccountCheckedForm
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse
 from .demo import prediction
-from .models import TwitterAccountChecked
+from .models import TwitterAccountsCheck
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -16,7 +16,7 @@ def home(request):
         if form.is_valid():
             screen_name_ = form.cleaned_data["screen_name"]
             pred = prediction(screen_name_)
-            data = TwitterAccountChecked(screen_name=screen_name_, prediction=pred)
+            data = TwitterAccountsCheck(screen_name=screen_name_, prediction=pred)
             data.save()
             return render(request, "result.html", {"screen_name": screen_name_, "pred": pred})
     else:

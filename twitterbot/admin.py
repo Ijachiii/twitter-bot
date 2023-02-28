@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import TwitterAccountChecked
+from .models import TwitterAccountsCheck
 
 # Register your models here.
 class TwitterAccountCheckedAdmin(admin.ModelAdmin):
-    model = TwitterAccountChecked
+    model = TwitterAccountsCheck
     list_display = ["screen_name", "prediction"]
 
-admin.site.register(TwitterAccountChecked, TwitterAccountCheckedAdmin)
+admin.site.register(TwitterAccountsCheck, TwitterAccountCheckedAdmin)

@@ -73,7 +73,7 @@ def prediction(username):
     # Reads in saved classification model
     load_clf = pickle.load(
         open(
-            r"Final Project\twitter_clf.pkl",
+            r"api\twitter_clf.pkl",
             "rb",
         )
     )
@@ -85,7 +85,4 @@ def prediction(username):
     # prediction_proba = load_clf.predict_proba(df)
 
     account_type = np.array(["Bot", "Human"])
-    print(account_type[prediction])
-
-
-prediction("_stevo_lee")
+    return account_type[prediction][0]

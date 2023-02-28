@@ -88,4 +88,3 @@ def prediction(username):
     return account_type[prediction][0]
 
 
-# prediction("David_Audu_")

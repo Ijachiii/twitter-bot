@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from twitterbot.models import TwitterAccountChecked
+from twitterbot.models import TwitterAccountsCheck
 
 class AccountCheckedSerializer(serializers.ModelSerializer):
     class Meta:
-        model = TwitterAccountChecked
+        model = TwitterAccountsCheck
         fields ="__all__"

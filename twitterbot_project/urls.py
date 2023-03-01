@@ -23,5 +23,6 @@ urlpatterns = [
     path("", include("twitterbot.urls")),
     path("api/", include("api.urls")),
     path("api/dj-rest-auth/", include("dj_rest_auth.urls")),
+    path("api/dj-rest-auth/registration/", include("dj_rest_auth.registration.urls")),
     
 ]

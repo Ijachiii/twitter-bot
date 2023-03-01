@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "corsheaders",
     "dj_rest_auth",
+    "dj_rest_auth.registration",
+
 ]
 
 MIDDLEWARE = [
@@ -84,6 +86,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.request", 
             ],
         },
     },
@@ -162,23 +165,23 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # sending mails
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # EMAIL_BACKEND = "smtp2go_django.email_backend.Smtp2goEmailBackend"
 
-DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
-EMAIL_HOST = env("EMAIL_HOST")
-EMAIL_HOST_USER = env("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
-EMAIL_PORT = env.int("EMAIL_PORT")
-EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS")
+#DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
+#EMAIL_HOST = env("EMAIL_HOST")
+#EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+#EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+#EMAIL_PORT = env.int("EMAIL_PORT")
+#EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS")
 
 # allauth authentication
-ACCOUNT_EMAIL_REQUIRED = False
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = "username"
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_EMAIL_VERIFICATION = "none"
+#ACCOUNT_EMAIL_REQUIRED = False
+#ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
+#ACCOUNT_USERNAME_REQUIRED = False
+#ACCOUNT_AUTHENTICATION_METHOD = "username"
+#ACCOUNT_UNIQUE_EMAIL = True
+#ACCOUNT_EMAIL_VERIFICATION = "none"
 
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -197,11 +200,11 @@ SOCIALACCOUNT_PROVIDERS = {
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticated",
+        "rest_framework.permissions.IsAuthenticated"
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.SessionAuthentication",
-        "rest_framework.authentication.TokenAuthentication",
+        "rest_framework.authentication.TokenAuthentication"
     ]
 }
 

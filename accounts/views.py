@@ -4,5 +4,3 @@ from .forms import CustomUserCreationForm
 from django.urls import reverse_lazy
 
 # Create your views here.
-class SignUpPageView(CreateView):
-    template_name = ""

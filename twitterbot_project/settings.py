@@ -51,10 +51,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "allauth",
     "allauth.account",
-    "allauth.socialaccount",
     "social_django",
-    # "allauth.socialaccount.providers.google",
-    "allauth.socialaccount.providers.twitter",
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
@@ -161,8 +158,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 LOGIN_REDIRECT_URL = "home"
-# LOGOUT_REDIRECT_URL = "account_login"
-LOGOUT_REDIRECT_URL = "account_login"
+LOGOUT_REDIRECT_URL = "login"
 
 SITE_ID = 1
 
@@ -189,20 +185,6 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 #ACCOUNT_AUTHENTICATION_METHOD = "username"
 #ACCOUNT_UNIQUE_EMAIL = True
 #ACCOUNT_EMAIL_VERIFICATION = "none"
-
-
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        },
-        'OAUTH_PKCE_ENABLED': True,
-    },
-}
 
 
 REST_FRAMEWORK = {

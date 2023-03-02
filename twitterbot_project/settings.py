@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    "allauth.socialaccount.providers.google",
+    "social_django",
+    # "allauth.socialaccount.providers.google",
     "allauth.socialaccount.providers.twitter",
     "rest_framework",
     "rest_framework.authtoken",
@@ -71,6 +72,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "social_django.middleware.SocialAuthExceptionMiddleware",
 ]
 
 ROOT_URLCONF = "twitterbot_project.urls"
@@ -86,7 +88,9 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "django.template.context_processors.request", 
+                "django.template.context_processors.request",
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect",
             ],
         },
     },
@@ -149,19 +153,22 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "accounts.CustomUser"
 
+SOCIAL_AUTH_TWITTER_KEY = "nkP9VwbfMZzKtpgwigFVr7D61"
+SOCIAL_AUTH_TWITTER_SECRET = "fdo8ZxNUYqgRhuZLwnS6bduoieuDsmCmmT51MY6pS80K00OfEt"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 LOGIN_REDIRECT_URL = "home"
+# LOGOUT_REDIRECT_URL = "account_login"
 LOGOUT_REDIRECT_URL = "account_login"
 
 SITE_ID = 1
 
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend"
+    "social_core.backends.twitter.TwitterOAuth",
 )
 
 # sending mails

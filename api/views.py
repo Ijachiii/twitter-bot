@@ -5,9 +5,10 @@ from rest_framework import generics, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response 
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.views import APIView
 
-from .serializers import AccountCheckedSerializer
+from .serializers import *
 from .demo import prediction
 
 
@@ -31,6 +32,17 @@ def checkAccount(request):
 
     return Response(serializer.data)
 
+class UserDetailAPI(APIView):
+  authentication_classes = (TokenAuthentication,SessionAuthentication)
+  permission_classes = (IsAuthenticated,)
+  def get(self,request,*args,**kwargs):
+    user = get_user_model().objects.get(id=request.user.id)
+    serializer = UserSerializer(user)
+    return Response(serializer.data)
+
+class RegisterUserAPIView(generics.CreateAPIView):
+  permission_classes = (IsAuthenticated,)
+  serializer_class = RegisterSerializer
 
 
 # @permission_classes([IsAuthenticated])

@@ -49,14 +49,15 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     "django.contrib.sites",
-    "allauth",
-    "allauth.account",
+    # "allauth",
+    # "allauth.socialaccount",
+    # "allauth.account",
     "social_django",
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
-    "dj_rest_auth",
-    "dj_rest_auth.registration",
+    # "dj_rest_auth",
+    # "dj_rest_auth.registration",
 
 ]
 
@@ -171,12 +172,12 @@ AUTHENTICATION_BACKENDS = (
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # EMAIL_BACKEND = "smtp2go_django.email_backend.Smtp2goEmailBackend"
 
-#DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
-#EMAIL_HOST = env("EMAIL_HOST")
-#EMAIL_HOST_USER = env("EMAIL_HOST_USER")
-#EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
-#EMAIL_PORT = env.int("EMAIL_PORT")
-#EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS")
+# DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
+# EMAIL_HOST = env("EMAIL_HOST")
+# EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+# EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
+# EMAIL_PORT = env.int("EMAIL_PORT")
+# EMAIL_USE_TLS = env.bool("EMAIL_USE_TLS")
 
 # allauth authentication
 #ACCOUNT_EMAIL_REQUIRED = False

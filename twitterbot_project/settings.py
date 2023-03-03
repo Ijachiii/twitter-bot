@@ -49,15 +49,15 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     "django.contrib.sites",
-    # "allauth",
-    # "allauth.socialaccount",
-    # "allauth.account",
+    "allauth",
+    "allauth.socialaccount",
+    "allauth.account",
     "social_django",
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
-    # "dj_rest_auth",
-    # "dj_rest_auth.registration",
+    "dj_rest_auth",
+    "dj_rest_auth.registration",
 
 ]
 
@@ -190,8 +190,9 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
         "rest_framework.authentication.SessionAuthentication",
-        'rest_framework.authentication.TokenAuthentication',
+        # 'rest_framework.authentication.TokenAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES':(
         'rest_framework.permissions.IsAuthenticated',
@@ -204,3 +205,8 @@ CORS_ORIGIN_WHITELIST = (
     "http://localhost:3000",
     "http://localhost:8000",
 )
+
+REST_AUTH = {
+    'JWT_AUTH_COOKIE': 'my-app-auth',
+    'JWT_AUTH_REFRESH_COOKIE': 'my-refresh-token',
+}

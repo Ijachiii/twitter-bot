@@ -59,9 +59,9 @@ class UserDetailAPI(APIView):
         return Response(serializer.data)
 
 
-class RegisterUserAPI(generics.CreateAPIView):
-    permission_classes = (AllowAny,)
-    serializer_class = RegisterSerializer
+# class RegisterUserAPI(generics.CreateAPIView):
+#     permission_classes = (AllowAny,)
+#     serializer_class = RegisterSerializer
 
 
 # @permission_classes([IsAuthenticated])

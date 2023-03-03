@@ -17,32 +17,51 @@ from .demo import prediction
 #     serializer_class = UserSerializer
 
 
-@api_view(["POST"])
-def checkAccount(request):
-    serializer = AccountCheckedSerializer(data=request.data)
-    if serializer.is_valid():
-        screen_name_ = serializer.data["screen_name"]
+# @api_view(["POST"])
+# def checkAccount(request):
+#     serializer = AccountCheckedSerializer(data=request.data)
+#     if serializer.is_valid():
+#         screen_name_ = serializer.data["screen_name"]
+#         pred = prediction(screen_name_)
+#         print(pred)
+#         seri = AccountCheckedSerializer(data={"screen_name": screen_name_, "prediction": pred})
+
+#         if seri.is_valid():
+#             seri.save()
+#         return Response(seri.data)
+
+#     return Response(serializer.data)
+
+class CheckAccountAPI(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        screen_name_ = request.data.get("screen_name")
         pred = prediction(screen_name_)
-        print(pred)
-        seri = AccountCheckedSerializer(data={"screen_name": screen_name_, "prediction": pred})
+        data = {
+            "screen_name": screen_name_,
+            "prediction": pred,
+        }
+        
+        serializer = AccountCheckedSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+        return Response(serializer.data)
 
-        if seri.is_valid():
-            seri.save()
-        return Response(seri.data)
 
-    return Response(serializer.data)
 
 class UserDetailAPI(APIView):
-  authentication_classes = (TokenAuthentication,SessionAuthentication)
-  permission_classes = (IsAuthenticated,)
-  def get(self,request,*args,**kwargs):
-    user = get_user_model().objects.get(id=request.user.id)
-    serializer = UserSerializer(user)
-    return Response(serializer.data)
+    permission_classes = (IsAuthenticated,)
 
-class RegisterUserAPIView(generics.CreateAPIView):
-  permission_classes = (IsAuthenticated,)
-  serializer_class = RegisterSerializer
+    def get(self,request,*args,**kwargs):
+        user = get_user_model().objects.get(id=request.user.id)
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
+
+
+class RegisterUserAPI(generics.CreateAPIView):
+    permission_classes = (AllowAny,)
+    serializer_class = RegisterSerializer
 
 
 # @permission_classes([IsAuthenticated])

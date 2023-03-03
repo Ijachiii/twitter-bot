@@ -189,13 +189,14 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticated"
-    ],
-    "DEFAULT_AUTHENTICATION_CLASSES": [
+    'DEFAULT_AUTHENTICATION_CLASSES': (
         "rest_framework.authentication.SessionAuthentication",
-        "rest_framework.authentication.TokenAuthentication"
-    ]
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES':(
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+
 }
 
 CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]

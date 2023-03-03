@@ -11,8 +11,8 @@ def prediction(username):
     # keys and token to access the API
     consumer_key = "nkP9VwbfMZzKtpgwigFVr7D61"
     consumer_secret = "fdo8ZxNUYqgRhuZLwnS6bduoieuDsmCmmT51MY6pS80K00OfEt"
-    access_token = "1153594241819586560-4rUjlMbpiP1nvU5CEvQe25PIpzTXvk"
-    access_secret = "cPUgGyJ367AQboM20hfRZWkCN3R8CEMxItx4HP94EcyHR"
+    access_token = "1153594241819586560-OLpKEOgKjB90SZiVCUsadeB7XvWDJZ"
+    access_secret = "HrCGRfafXXXsiyojhLqMhuPbkk0VXphuDqJOIsDjDEL6w"
 
     # access the API
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)

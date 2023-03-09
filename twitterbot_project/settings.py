@@ -194,9 +194,9 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+        # 'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
         "rest_framework.authentication.SessionAuthentication",
-        # 'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES':(
         'rest_framework.permissions.IsAuthenticated',
@@ -210,9 +210,9 @@ CORS_ORIGIN_WHITELIST = (
     "http://localhost:8000",
 )
 
-REST_AUTH = {
-    'JWT_AUTH_COOKIE': 'my-app-auth',
-    'JWT_AUTH_REFRESH_COOKIE': 'my-refresh-token',
-}
+# REST_AUTH = {
+#     'JWT_AUTH_COOKIE': 'my-app-auth',
+#     'JWT_AUTH_REFRESH_COOKIE': 'my-refresh-token',
+# }
 
-USE_JWT = True
+# USE_JWT = True

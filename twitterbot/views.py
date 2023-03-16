@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import FormView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import TwitterAccountCheckedForm
@@ -7,9 +7,11 @@ from django.http import HttpResponse
 from .demo import prediction
 from .models import TwitterAccountsCheck
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
-@login_required
+# @login_required
 def home(request):
     if request.method == "POST":
         form = TwitterAccountCheckedForm(request.POST)
@@ -22,6 +24,33 @@ def home(request):
     else:
         form = TwitterAccountCheckedForm()
     return render(request, "index.html", {"form": form})
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
+
+
+def login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('home')  # Change this to your desired URL
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
 
 # class HomePageView(LoginRequiredMixin, FormView):
 #     form_class = AccountForm

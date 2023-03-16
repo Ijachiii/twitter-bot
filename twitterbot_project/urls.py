@@ -16,13 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth.views import LoginView, LogoutView
-from rest_framework.authtoken import views
+from twitterbot.views import signup, login
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/logout/", LogoutView.as_view(), name="logout"),
-    path("accounts/login/", LoginView.as_view(), name="login"),
+    # path("accounts/login/", LoginView.as_view(), name="login"),
     path("api-auth/", include("rest_framework.urls")),
+    path("accounts/signup/", signup),
+    path("accounts/login/", login),
     path("", include("twitterbot.urls")),
     path("api/", include("api.urls")),
     path("api/dj-rest-auth/", include("dj_rest_auth.urls")),

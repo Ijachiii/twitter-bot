@@ -24,7 +24,7 @@ urlpatterns = [
     # path("accounts/login/", LoginView.as_view(), name="login"),
     path("api-auth/", include("rest_framework.urls")),
     path("accounts/signup/", signup),
-    path("accounts/login/", login),
+    path("accounts/login/", login, name="login"),
     path("", include("twitterbot.urls")),
     path("api/", include("api.urls")),
     path("api/dj-rest-auth/", include("dj_rest_auth.urls")),

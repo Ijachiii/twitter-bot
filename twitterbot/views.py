@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login
 
 # Create your views here.
-# @login_required
+@login_required
 def home(request):
     if request.method == "POST":
         form = TwitterAccountCheckedForm(request.POST)

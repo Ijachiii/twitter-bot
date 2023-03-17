@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login
 
-# Create your views here.
+# Create your views here
 @login_required
 def home(request):
     if request.method == "POST":

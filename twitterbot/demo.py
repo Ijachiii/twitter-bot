@@ -82,7 +82,7 @@ def prediction(username):
     prediction = load_clf.predict(df)
 
     # Model precentage prediction
-    # prediction_proba = load_clf.predict_proba(df)
+    prediction_proba = load_clf.predict_proba(df)
 
     account_type = np.array(["Bot", "Human"])
     return account_type[prediction][0]

@@ -5,6 +5,7 @@ import tweepy
 import json
 import datetime
 
+
 def prediction(username):
     # Get user data using Twitter API
     # keys and token to access the API
@@ -74,7 +75,8 @@ def prediction(username):
     prediction = load_clf.predict(df)
 
     # Model precentage prediction
-    prediction_proba = load_clf.predict_proba(df)
+    prediction_proba = load_clf.predict_proba(df) * 100
 
     account_type = np.array(['Bot','Human'])
-    return account_type[prediction], prediction_proba[:, prediction]
+    # return account_type[prediction], prediction_proba[:, prediction]
+    return account_type[prediction][0], prediction_proba[:, prediction][0][0]

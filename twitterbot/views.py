@@ -1,9 +1,7 @@
 from django.shortcuts import render, redirect
-from django.views.generic import FormView, TemplateView
+from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import TwitterAccountCheckedForm
-from django.contrib.auth import get_user_model
-from django.http import HttpResponse
 from .demo import prediction
 from .models import TwitterAccountsCheck
 from django.contrib.auth.decorators import login_required

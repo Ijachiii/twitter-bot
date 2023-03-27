@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import TwitterAccountCheckedForm
-from .demo import prediction
+# from .demo import prediction
+from .main import prediction
 from .models import TwitterAccountsCheck
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -16,9 +17,12 @@ def home(request):
         if form.is_valid():
             screen_name_ = form.cleaned_data["screen_name"]
             pred = prediction(screen_name_)
-            data = TwitterAccountsCheck(screen_name=screen_name_, prediction=pred)
+            percentage = pred[1]
+            predic = pred[0]
+            data = TwitterAccountsCheck(screen_name=screen_name_, prediction=predic)
             data.save()
-            return render(request, "result.html", {"screen_name": screen_name_, "pred": pred})
+            print
+            return render(request, "result.html", {"screen_name": screen_name_, "predic": predic, "percentage": percentage})
     else:
         form = TwitterAccountCheckedForm()
     return render(request, "index.html", {"form": form})

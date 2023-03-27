@@ -8,10 +8,10 @@ import datetime
 def prediction(username):
     # Get user data using Twitter API
     # keys and token to access the API
-    consumer_key = 'consumer_key'
-    consumer_secret = 'consumer_secret'
-    access_token = 'access_token'
-    access_secret = 'access_secret'
+    consumer_key = "nkP9VwbfMZzKtpgwigFVr7D61"
+    consumer_secret = "fdo8ZxNUYqgRhuZLwnS6bduoieuDsmCmmT51MY6pS80K00OfEt"
+    access_token = "1153594241819586560-OLpKEOgKjB90SZiVCUsadeB7XvWDJZ"
+    access_secret = "HrCGRfafXXXsiyojhLqMhuPbkk0VXphuDqJOIsDjDEL6w"
 
     # access the API
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -63,7 +63,12 @@ def prediction(username):
     df['profile_background_image_url'].replace([True, False], [1, 0], inplace=True)
 
     # Reads in saved classification model
-    load_clf = pickle.load(open('twitter_clf.pkl', 'rb'))
+    load_clf = pickle.load(
+        open(
+            r"twitterbot\twitter_clf.pkl",
+            "rb",
+        )
+    )
 
     # Apply model to make predictions
     prediction = load_clf.predict(df)

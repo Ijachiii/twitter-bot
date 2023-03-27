@@ -50,16 +50,6 @@ def login(request):
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
 
-# class HomePageView(LoginRequiredMixin, FormView):
-#     form_class = AccountForm
-#     template_name = "index.html"
-#     login_url = "account_login"
-#     success_url = "/result/"
-# 
-#     def form_valid(self, form: AccountForm) -> HttpResponse:
-#         username = form.cleaned_data["username"]
-#         print(username)
-#         return super().form_valid(form)
 
 class ResultView(LoginRequiredMixin, TemplateView):
     template_name = "result.html"

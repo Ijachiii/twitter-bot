@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "dj_rest_auth",
     "dj_rest_auth.registration",
+    "drf_spectacular",
 
 ]
 
@@ -201,7 +202,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES':(
         'rest_framework.permissions.IsAuthenticated',
     ),
-
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000"]

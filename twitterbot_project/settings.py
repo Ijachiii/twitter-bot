@@ -210,6 +210,12 @@ CORS_ORIGIN_WHITELIST = (
     "http://localhost:8000",
 )
 
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Twitter Bot",
+    "DESCRIPTION": "Api endpoints for project Twitter Bot",
+    "VERSION": "1.0.0",
+}
+
 # REST_AUTH = {
 #     'JWT_AUTH_COOKIE': 'my-app-auth',
 #     'JWT_AUTH_REFRESH_COOKIE': 'my-refresh-token',
